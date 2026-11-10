@@ -1,6 +1,6 @@
 # katha_of_life
 
-Website for **The Katha by Dr. Monica**: Childbirth Educator, Advanced Certified Lactation Professional, Pregnancy, Labour Management, MYICAN.
+Website for **Katha of Life by Dr. Monica**: Childbirth Educator, Advanced Certified Lactation Professional, Pregnancy, Labour Management, MYICAN.
 
 Live domain: https://kathaoflife.in/
 
