@@ -10,10 +10,12 @@ const EXPERT = "Dr. Monica";
 //  colour: rose | teal | lilac         (placeholder image colour)
 //  badge:  small label on the image (optional)
 //  featured: true gives the card a highlight border
+//  image:  photo shown on the card (leave out to show a placeholder)
 // =====================================================
 const COURSES = [
   {
     title: "Breastfeeding",
+    image: "images/courses/breastfeeding.svg",
     stage: "baby", stageLabel: "Lactation",
     colour: "rose", badge: "Most popular", featured: true,
     text: "Latch, positions, milk supply, pumping and common problems, taught by an Advanced Certified Lactation Professional.",
@@ -21,6 +23,7 @@ const COURSES = [
   },
   {
     title: "The Birth Prep",
+    image: "images/courses/birth-prep.svg",
     stage: "birth", stageLabel: "Childbirth education",
     colour: "teal", badge: "New batch · 5 Dec",
     text: "A complete childbirth programme: stages of labour, birth choices, C-section, the first hour and coming home.",
@@ -28,6 +31,7 @@ const COURSES = [
   },
   {
     title: "Labour Management Session",
+    image: "images/courses/labour-management.svg",
     stage: "birth", stageLabel: "Labour",
     colour: "lilac",
     text: "Breathing, positions, comfort measures and partner support so you can work with your body during labour.",
@@ -35,6 +39,7 @@ const COURSES = [
   },
   {
     title: "Pregnancy Care Essentials",
+    image: "images/courses/pregnancy-care.svg",
     stage: "pregnancy", stageLabel: "Pregnancy",
     colour: "teal",
     text: "Nutrition, safe exercise, common discomforts and warning signs, trimester by trimester.",
@@ -42,6 +47,7 @@ const COURSES = [
   },
   {
     title: "Newborn Care Basics",
+    image: "images/courses/newborn-care.svg",
     stage: "baby", stageLabel: "After birth",
     colour: "lilac",
     text: "Bathing, cord care, burping, sleep, crying and when to call the doctor in the first weeks.",
@@ -49,6 +55,7 @@ const COURSES = [
   },
   {
     title: "1:1 Lactation Consultation",
+    image: "images/courses/lactation-consult.svg",
     stage: "baby", stageLabel: "Private session",
     colour: "rose",
     text: "A private video or home visit for personal help with feeding, latch or supply. Includes a written plan.",
@@ -81,7 +88,7 @@ function renderCourses(filter) {
   grid.innerHTML = list.map((c, i) => `
     <article class="course course--${c.colour}${c.featured ? " course--featured" : ""}" style="animation-delay:${i * 60}ms">
       <div class="course__media">
-        <div class="img-ph">${imgIcon}<span>Image placeholder<br><small>${c.title}</small></span></div>
+        ${c.image ? `<img class="course__img" src="${c.image}" alt="${c.title}" loading="lazy" width="800" height="500">` : `<div class="img-ph">${imgIcon}<span>Image placeholder<br><small>${c.title}</small></span></div>`}
         ${c.badge ? `<span class="course__badge${c.featured ? " course__badge--featured" : ""}">${c.badge}</span>` : ""}
       </div>
       <div class="course__body">
@@ -182,42 +189,6 @@ if ("IntersectionObserver" in window) {
   }), { threshold: 0.12 });
   revealEls.forEach((el) => io.observe(el));
 }
-
-// ----- Colour themes -----
-// name shown in the picker + 3 preview colours (main, accent, dark)
-const THEMES = [
-  { id: "blush",    name: "Blush Rose", colours: ["#d9667f", "#3f9e9a", "#2d1b3d"] },
-  { id: "sage",     name: "Sage Green", colours: ["#5f8f6e", "#c98a5b", "#23322a"] },
-  { id: "lavender", name: "Lavender",   colours: ["#8b6bbf", "#d9789a", "#2a1f45"] },
-  { id: "ocean",    name: "Ocean Teal", colours: ["#2f8f9d", "#f08a5d", "#15343c"] },
-  { id: "peach",    name: "Warm Peach", colours: ["#e07a4f", "#4f8a8b", "#3a2418"] },
-  { id: "night",    name: "Night",      colours: ["#e58aa0", "#6cc4bf", "#17121c"] },
-];
-const picker = document.getElementById("theme-picker");
-const pickerBtn = picker.querySelector(".theme-picker__toggle");
-const themeList = document.getElementById("theme-list");
-const currentTheme = () => document.documentElement.dataset.theme || "blush";
-
-themeList.innerHTML = THEMES.map((t) => `
-  <button class="theme-opt" role="radio" data-theme-id="${t.id}" aria-checked="${t.id === currentTheme()}">
-    <span class="swatch">${t.colours.map((c) => `<i style="background:${c}"></i>`).join("")}</span>
-    ${t.name}
-  </button>`).join("");
-
-function setTheme(id) {
-  if (id === "blush") delete document.documentElement.dataset.theme;
-  else document.documentElement.dataset.theme = id;
-  themeList.querySelectorAll(".theme-opt").forEach((b) => b.setAttribute("aria-checked", String(b.dataset.themeId === id)));
-  try { localStorage.setItem("katha-theme", id); } catch (e) {}
-}
-themeList.addEventListener("click", (e) => {
-  const opt = e.target.closest(".theme-opt");
-  if (opt) setTheme(opt.dataset.themeId);
-});
-const setPicker = (open) => { picker.classList.toggle("is-open", open); pickerBtn.setAttribute("aria-expanded", String(open)); };
-pickerBtn.addEventListener("click", () => setPicker(!picker.classList.contains("is-open")));
-document.addEventListener("click", (e) => { if (!picker.contains(e.target)) setPicker(false); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") setPicker(false); });
 
 // ----- Footer year -----
 document.getElementById("year").textContent = new Date().getFullYear();

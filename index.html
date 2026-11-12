@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="peach">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,11 +17,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/logo/favicon-64.png">
+  <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
   <link rel="stylesheet" href="styles.css">
-  <script>
-    // Apply the saved colour theme before the page draws (no flash)
-    try { var t = localStorage.getItem("katha-theme"); if (t && t !== "blush") document.documentElement.dataset.theme = t; } catch (e) {}
-  </script>
 </head>
 <body>
 
@@ -37,9 +35,8 @@
   <header class="header" id="top">
     <div class="container header__inner">
       <a href="#top" class="brand" aria-label="Katha of Life home">
-        <!-- LOGO PLACEHOLDER: replace this span with <img src="images/logo.png" alt="Katha of Life"> -->
-        <span class="logo-ph" aria-hidden="true">LOGO</span>
-        <span class="brand__text">Katha of Life<small>by Dr. Monica</small></span>
+        <img src="images/logo/logo-horizontal.png" alt="Katha of Life" class="brand__logo" width="512" height="150">
+        <span class="brand__by">by Dr. Monica</span>
       </a>
 
       <nav class="nav" id="nav" aria-label="Main">
@@ -72,9 +69,9 @@
 
           <ul class="creds" aria-label="Credentials">
             <li>Childbirth Educator</li>
-            <li>Advanced Certified Lactation Professional</li>
+            <li class="cred--key"><span aria-hidden="true">★</span> Advanced Certified Lactation Professional</li>
             <li>Pregnancy</li>
-            <li>Labour Management</li>
+            <li class="cred--key"><span aria-hidden="true">★</span> Labour Management</li>
             <li>MYICAN</li>
           </ul>
 
@@ -88,10 +85,10 @@
 
           <div class="hero__trust">
             <div class="avatars" aria-hidden="true">
-              <span class="img-ph img-ph--avatar"></span>
-              <span class="img-ph img-ph--avatar"></span>
-              <span class="img-ph img-ph--avatar"></span>
-              <span class="img-ph img-ph--avatar"></span>
+              <img class="avatar" src="images/avatars/parent-1.svg" alt="" width="42" height="42">
+              <img class="avatar" src="images/avatars/parent-2.svg" alt="" width="42" height="42">
+              <img class="avatar" src="images/avatars/parent-3.svg" alt="" width="42" height="42">
+              <img class="avatar" src="images/avatars/parent-4.svg" alt="" width="42" height="42">
             </div>
             <p><strong>Trusted by expecting parents</strong><br><span class="stars">★★★★★</span> Loved for warm, practical guidance</p>
           </div>
@@ -127,7 +124,8 @@
             <h3>Childbirth Educator</h3>
             <p>Clear, evidence-based classes so you know what to expect, and what you can choose, during birth.</p>
           </article>
-          <article class="exp">
+          <article class="exp exp--key">
+            <span class="exp__tag">Specialist</span>
             <span class="exp__icon">🤱</span>
             <h3>Advanced Certified Lactation Professional</h3>
             <p>Hands-on help with latch, pain, supply, pumping and returning to work.</p>
@@ -137,7 +135,8 @@
             <h3>Pregnancy</h3>
             <p>Trimester-by-trimester guidance on nutrition, movement, comfort and emotional well-being.</p>
           </article>
-          <article class="exp">
+          <article class="exp exp--key">
+            <span class="exp__tag">Specialist</span>
             <span class="exp__icon">💪</span>
             <h3>Labour Management</h3>
             <p>Breathing, positions, comfort techniques and partner support to work with your body in labour.</p>
@@ -173,9 +172,9 @@
 
           <ul class="checklist">
             <li>Childbirth Educator</li>
-            <li>Advanced Certified Lactation Professional</li>
+            <li class="check--key">Advanced Certified Lactation Professional</li>
             <li>Pregnancy care &amp; guidance</li>
-            <li>Labour management</li>
+            <li class="check--key">Labour management</li>
             <li>MYICAN</li>
           </ul>
 
@@ -246,14 +245,15 @@
       <div class="container">
         <div class="section__head section__head--center">
           <p class="eyebrow">Moments</p>
-          <h2>From our classes</h2>
+          <h2>Every mother has a story</h2>
         </div>
+        <!-- Stock photos from Unsplash (free licence). Replace with real class photos later. -->
         <div class="gallery__grid">
-          <div class="img-ph g1"><span>Image placeholder<br><small>Class photo</small></span></div>
-          <div class="img-ph g2"><span>Image placeholder<br><small>Breastfeeding session</small></span></div>
-          <div class="img-ph g3"><span>Image placeholder<br><small>Labour practice</small></span></div>
-          <div class="img-ph g4"><span>Image placeholder<br><small>Happy family</small></span></div>
-          <div class="img-ph g5"><span>Image placeholder<br><small>Certificate</small></span></div>
+          <figure class="g-photo g1"><img src="images/gallery/pregnancy-sari.jpg" alt="Pregnant Indian mother in a gold sari with flower garlands" loading="lazy"><figcaption>Pregnancy</figcaption></figure>
+          <figure class="g-photo g2"><img src="images/gallery/mother-baby-bonding.jpg" alt="Smiling Indian mother cuddling her baby" loading="lazy"><figcaption>Bonding</figcaption></figure>
+          <figure class="g-photo g3"><img src="images/gallery/grandmother-newborn.jpg" alt="Grandmother in a pink sari smiling at a newborn" loading="lazy"><figcaption>Family support</figcaption></figure>
+          <figure class="g-photo g4"><img src="images/gallery/happy-family.jpg" alt="Happy Indian family with their baby" loading="lazy"><figcaption>Happy families</figcaption></figure>
+          <figure class="g-photo g5"><img src="images/gallery/new-mother.jpg" alt="Indian mother holding her baby and smiling" loading="lazy"><figcaption>New mothers</figcaption></figure>
         </div>
       </div>
     </section>
@@ -310,9 +310,14 @@
     <div class="container footer__grid">
       <div>
         <a href="#top" class="brand brand--light">
-          <span class="logo-ph logo-ph--light" aria-hidden="true">LOGO</span>
-          <span class="brand__text">Katha of Life<small>by Dr. Monica</small></span>
+          <span class="footer__logo"><img src="images/logo/logo-main.png" alt="Katha of Life" width="400" height="396" loading="lazy"></span>
         </a>
+        <div class="footer__social">
+          <a href="#" class="social-btn social-btn--wa js-whatsapp" data-msg="Hi Dr. Monica!" aria-label="WhatsApp"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8.9-.3.2-.5 0a6.6 6.6 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.9 11.9 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>
+          <a href="https://www.instagram.com/thekatha_of_life/" class="social-btn social-btn--ig" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/@thekathaoflife" class="social-btn social-btn--yt" target="_blank" rel="noopener" aria-label="YouTube"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.4 5 12 5 12 5s-4.4 0-7.2.2c-.4 0-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.4v1.6c0 1.7.2 3.4.2 3.4s.2 1.5.8 2.1c.8.8 1.8.8 2.2.9 1.6.1 7 .2 7 .2s4.4 0 7.2-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.4v-1.6C22.2 9.7 22 8 22 8zM10 15V9l5 3-5 3z"/></svg></a>
+          <a href="mailto:hello@kathaoflife.in" class="social-btn social-btn--mail" aria-label="Email"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+        </div>
         <p class="footer__about">Childbirth Educator · Advanced Certified Lactation Professional · Pregnancy · Labour Management · MYICAN</p>
       </div>
       <div>
@@ -324,11 +329,11 @@
       </div>
       <div>
         <h4>Contact</h4>
-        <a href="#" class="js-whatsapp" data-msg="Hi Dr. Monica!">WhatsApp: +91 72073 10485</a>
-        <a href="mailto:hello@kathaoflife.in">hello@kathaoflife.in</a>
-        <a href="https://kathaoflife.in/">kathaoflife.in</a>
-        <a href="https://www.instagram.com/thekatha_of_life/" target="_blank" rel="noopener">Instagram: @thekatha_of_life</a>
-        <a href="https://www.youtube.com/@thekathaoflife" target="_blank" rel="noopener">YouTube: @thekathaoflife</a>
+        <a href="#" class="js-whatsapp contact-link contact-link--wa" data-msg="Hi Dr. Monica!"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20zm4.4-6c-.2-.1-1.4-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8.9-.3.2-.5 0a6.6 6.6 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.9 11.9 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.1-1.3c0-.1-.2-.2-.5-.3z"/></svg><span>+91 72073 10485</span></a>
+        <a href="mailto:hello@kathaoflife.in" class="contact-link contact-link--mail"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>hello@kathaoflife.in</span></a>
+        <a href="https://kathaoflife.in/" class="contact-link contact-link--web"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span>kathaoflife.in</span></a>
+        <a href="https://www.instagram.com/thekatha_of_life/" target="_blank" rel="noopener" class="contact-link contact-link--ig"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>@thekatha_of_life</span></a>
+        <a href="https://www.youtube.com/@thekathaoflife" target="_blank" rel="noopener" class="contact-link contact-link--yt"><svg class="ci" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 8s-.2-1.5-.8-2.1c-.8-.8-1.6-.8-2-.9C16.4 5 12 5 12 5s-4.4 0-7.2.2c-.4 0-1.2.1-2 .9C2.2 6.5 2 8 2 8s-.2 1.7-.2 3.4v1.6c0 1.7.2 3.4.2 3.4s.2 1.5.8 2.1c.8.8 1.8.8 2.2.9 1.6.1 7 .2 7 .2s4.4 0 7.2-.2c.4-.1 1.2-.1 2-.9.6-.6.8-2.1.8-2.1s.2-1.7.2-3.4v-1.6C22.2 9.7 22 8 22 8zM10 15V9l5 3-5 3z"/></svg><span>@thekathaoflife</span></a>
       </div>
     </div>
     <div class="container footer__bottom">
@@ -336,20 +341,6 @@
       <p>Information on this site is educational and does not replace medical advice.</p>
     </div>
   </footer>
-
-  <!-- Colour theme picker -->
-  <div class="theme-picker" id="theme-picker">
-    <div class="theme-picker__panel" id="theme-panel" role="dialog" aria-label="Colour theme">
-      <p class="theme-picker__title">Colour theme</p>
-      <div class="theme-list" role="radiogroup" id="theme-list"><!-- filled by script.js --></div>
-    </div>
-    <button class="theme-picker__toggle" aria-label="Change colour theme" aria-expanded="false" aria-controls="theme-panel">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-        <path d="M12 3a9 9 0 100 18c1.1 0 1.7-.8 1.7-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7H16a5 5 0 005-5c0-3.9-4-7.2-9-7.2z"/>
-        <circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="10.5" cy="7" r="1.2" fill="currentColor"/><circle cx="15" cy="7.5" r="1.2" fill="currentColor"/>
-      </svg>
-    </button>
-  </div>
 
   <!-- WhatsApp floating button -->
   <a href="#" class="wa-float js-whatsapp" data-msg="Hi Dr. Monica!" aria-label="Chat on WhatsApp">

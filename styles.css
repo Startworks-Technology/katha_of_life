@@ -347,12 +347,12 @@ p { margin: 0 0 1em; }
   --plum: #15343c; --text: #34484d; --muted: #6c8287; --line: #d8eaec;
   --on-dark: #a9e3ea; --footer: #0e242a;
 }
-[data-theme="peach"] {
-  --bg: #fffaf6; --cream: #fdf0e8; --blush: #fbe1d3;
-  --rose: #e07a4f; --rose-dark: #c4623a;
-  --teal: #4f8a8b; --teal-soft: #e0efee; --teal-dark: #376b6c;
-  --plum: #3a2418; --text: #4d3f37; --muted: #8a7a70; --line: #f2e0d5;
-  --on-dark: #ffcfb5; --footer: #26170f;
+[data-theme="peach"] {  /* DEFAULT theme: matches the Katha of Life logo */
+  --bg: #fffaf6; --cream: #fdf1e9; --blush: #fbe2d4;
+  --rose: #d26d3d; --rose-dark: #b0552a;
+  --teal: #4a8f80; --teal-soft: #e1efeb; --teal-dark: #33695d;
+  --plum: #5e2e16; --text: #4d3a30; --muted: #8a776c; --line: #f2dfd3;
+  --on-dark: #ffc9a8; --footer: #2b1810;
 }
 [data-theme="night"] {
   --bg: #17121c; --cream: #1e1824; --blush: #2c2131; --white: #241d2b;
@@ -454,3 +454,111 @@ body, .header, .exp, .course, .fb, .filters, .rating-box, .float-card, .creds li
 .btn--ghost .ig-icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
 .btn--ghost .ig-icon .ig-dot { fill: currentColor; stroke: none; }
 .btn--ghost .yt-icon { width: 20px; height: 20px; fill: currentColor; }
+
+/* ---------- Real logo ---------- */
+.header__inner { height: 78px; }
+.brand__logo { height: 52px; width: auto; }
+.brand__by { font-family: var(--serif); font-style: italic; font-size: .9rem; color: var(--muted); padding-left: 12px; border-left: 1px solid var(--line); line-height: 1.2; }
+.footer__logo { display: inline-grid; place-items: center; background: #fdf3ed; border-radius: 22px; padding: 10px 18px; }
+.footer__logo img { height: 120px; width: auto; }
+/* Night theme: keep the logo readable on a light tile */
+[data-theme="night"] .brand__logo { background: #fdf3ed; border-radius: 14px; padding: 4px 8px; }
+@media (max-width: 960px) {
+  .nav { top: 78px; }
+}
+@media (max-width: 640px) {
+  .header__inner { height: 66px; }
+  .nav { top: 66px; }
+  .brand__logo { height: 40px; }
+  .brand__by { font-size: .8rem; padding-left: 10px; }
+}
+
+/* ---------- Gallery photos ---------- */
+.g-photo { position: relative; margin: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); background: var(--blush); }
+.g-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; transition: transform .6s ease; }
+.g-photo:hover img { transform: scale(1.05); }
+.g-photo figcaption { position: absolute; left: 14px; bottom: 14px; background: color-mix(in srgb, var(--white) 88%, transparent); color: var(--plum); font-size: .8rem; font-weight: 800; letter-spacing: .04em; padding: 5px 12px; border-radius: 999px; backdrop-filter: blur(6px); }
+
+/* ---------- Course photos ---------- */
+.course__img { display: block; width: 100%; aspect-ratio: 16 / 10; height: auto; object-fit: cover; object-position: 50% 30%; transition: transform .6s ease; }
+.course__media { overflow: hidden; }
+.course:hover .course__img { transform: scale(1.05); }
+
+/* ---------- Highlighted credentials ---------- */
+/* reset earlier colour rules on the hero chips */
+.creds li:nth-child(2), .creds li:last-child { background: var(--white); color: var(--plum); border-color: var(--line); }
+.creds li.cred--key {
+  background: var(--rose); color: #fff; border-color: transparent;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--rose) 35%, transparent);
+  font-weight: 800;
+}
+.creds li.cred--key span { color: #ffe1c9; margin-right: 2px; }
+
+.exp--key { position: relative; background: var(--white); border: 2px solid var(--rose); box-shadow: var(--shadow); }
+.exp--key .exp__icon { background: var(--rose); }
+.exp--key h3 { color: var(--rose-dark); }
+.exp__tag { position: absolute; top: -12px; right: 16px; background: var(--rose); color: #fff; font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+@media (min-width: 1101px) { .exp--key { transform: translateY(-8px); } .exp--key:hover { transform: translateY(-14px); } }
+.checklist li.check--key { color: var(--rose-dark); }
+.checklist li.check--key::before { background: var(--rose); content: "★"; }
+
+/* Highlight colour = teal (logo leaf), so it doesn't merge with the peach buttons */
+.creds li.cred--key { background: var(--teal); box-shadow: 0 8px 20px color-mix(in srgb, var(--teal) 35%, transparent); }
+.creds li.cred--key span { color: #fff3c4; }
+.exp--key { border-color: var(--teal); }
+.exp--key .exp__icon { background: var(--teal-soft); }
+.exp--key h3 { color: var(--teal-dark); }
+.exp__tag { background: var(--teal); }
+.checklist li::before { background: var(--rose); }
+.checklist li.check--key { color: var(--teal-dark); }
+.checklist li.check--key::before { background: var(--teal); }
+
+/* ---------- Hero photo always visible ---------- */
+/* Tablets / narrow windows: keep text and photo side by side */
+@media (min-width: 641px) and (max-width: 960px) {
+  .hero__inner { grid-template-columns: 1.15fr .85fr; gap: 32px; }
+  .hero h1 { font-size: clamp(1.9rem, 4.4vw, 2.6rem); }
+  .hero__media { max-width: none; margin: 0; }
+  .float-card--top { left: -18px; top: 8%; }
+  .float-card--bottom { right: -8px; bottom: 6%; }
+  .hero__trust { flex-wrap: wrap; }
+}
+/* Phones: show the photo first, above the headline */
+@media (max-width: 640px) {
+  .hero__inner { gap: 28px; }
+  .hero__media { order: -1; max-width: 300px; }
+  .hero__frame { border-width: 6px; }
+}
+
+/* Highlight = dark brown (logo text colour) + gold star — option A */
+:root { --key: #5e2e16; --key-soft: #f6e9df; --gold: #f6c453; }
+.creds li.cred--key { background: var(--key); color: #fff; box-shadow: 0 8px 20px color-mix(in srgb, var(--key) 30%, transparent); }
+.creds li.cred--key span { color: var(--gold); }
+.exp--key { border-color: var(--key); }
+.exp--key .exp__icon { background: var(--key-soft); }
+.exp--key h3 { color: var(--key); }
+.exp__tag { background: var(--key); color: #fff; }
+.exp__tag::before { content: "★ "; color: var(--gold); }
+.checklist li.check--key { color: var(--key); }
+.checklist li.check--key::before { background: var(--key); color: var(--gold); }
+.exp.exp--key .exp__icon { background: var(--key-soft); }
+
+/* Parent avatars (hero trust row) */
+.avatar { width: 42px; height: 42px; border-radius: 50%; border: 3px solid var(--bg); margin-left: -12px; box-shadow: var(--shadow-sm); }
+.avatars .avatar:first-child { margin-left: 0; }
+
+/* ---------- Footer contact + social icons ---------- */
+.footer__grid a.contact-link { display: flex; align-items: center; gap: 10px; }
+.contact-link .ci { width: 18px; height: 18px; flex-shrink: 0; color: var(--on-dark); }
+.contact-link--wa .ci { color: #25d366; }
+.contact-link--ig .ci { color: #f77737; }
+.contact-link--yt .ci { color: #ff3d3d; }
+.footer__social { display: flex; gap: 10px; margin-top: 18px; }
+.footer__grid .social-btn { display: grid; place-items: center; width: 42px; height: 42px; margin: 0; border-radius: 50%; background: rgba(255,255,255,.08); color: #fff; transition: transform .2s, background .2s; }
+.social-btn .ci { width: 20px; height: 20px; }
+.footer__grid .social-btn:hover { transform: translateY(-3px); color: #fff; }
+.social-btn--wa:hover { background: #25d366; }
+.social-btn--ig:hover { background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7); }
+.social-btn--yt:hover { background: #ff0000; }
+.social-btn--mail:hover { background: var(--rose); }
+.footer__grid a.social-btn:not(.brand) { display: grid; place-items: center; margin: 0; }
