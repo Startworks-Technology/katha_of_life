@@ -5,9 +5,11 @@ Website for **Katha of Life by Dr. Monica**: Childbirth Educator, Advanced Certi
 Live domain: https://kathaoflife.in/
 
 ## Files
-- `index.html`: the page
+- `index.html`: the home page
+- `course.html` + `course.js`: one page per course (`course.html?c=breastfeeding` etc.)
+- `courses.js`: **edit courses here**: titles, prices, timings, languages and what is taught. Also the WhatsApp number and email
 - `styles.css`: design and colour themes
-- `script.js`: courses, feedback, WhatsApp number and theme list (edit the lists at the top)
+- `script.js`: home page script (feedback list at the top)
 - `images/`: photos (`monica.jpg`)
 - `images/logo/`: logos used on the site (`logo-horizontal.png` = header logo, `logo-main.png` = main square logo, `logo-icon.png`, `logo-badge.png`, favicons). Full-size originals are in `images/logo/original/`
 

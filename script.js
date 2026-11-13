@@ -1,111 +1,41 @@
-// =====================================================
-//  SETTINGS: change these
-// =====================================================
-const WHATSAPP_NUMBER = "917207310485"; // country code + number, no "+" or spaces
-const EXPERT = "Dr. Monica";
-
-// =====================================================
-//  COURSES: edit this list to add / change courses
-//  stage:  pregnancy | birth | baby   (used by the filter buttons)
-//  colour: rose | teal | lilac         (placeholder image colour)
-//  badge:  small label on the image (optional)
-//  featured: true gives the card a highlight border
-//  image:  photo shown on the card (leave out to show a placeholder)
-// =====================================================
-const COURSES = [
-  {
-    title: "Breastfeeding",
-    image: "images/courses/breastfeeding.svg",
-    stage: "baby", stageLabel: "Lactation",
-    colour: "rose", badge: "Most popular", featured: true,
-    text: "Latch, positions, milk supply, pumping and common problems, taught by an Advanced Certified Lactation Professional.",
-    duration: "2 sessions", mode: "Live online", price: 2500,
-  },
-  {
-    title: "The Birth Prep",
-    image: "images/courses/birth-prep.svg",
-    stage: "birth", stageLabel: "Childbirth education",
-    colour: "teal", badge: "New batch · 5 Dec",
-    text: "A complete childbirth programme: stages of labour, birth choices, C-section, the first hour and coming home.",
-    duration: "8 weeks", mode: "Live + replays", price: 4999, oldPrice: 6499,
-  },
-  {
-    title: "Labour Management Session",
-    image: "images/courses/labour-management.svg",
-    stage: "birth", stageLabel: "Labour",
-    colour: "lilac",
-    text: "Breathing, positions, comfort measures and partner support so you can work with your body during labour.",
-    duration: "3 hours", mode: "Online / in-person", price: 1999,
-  },
-  {
-    title: "Pregnancy Care Essentials",
-    image: "images/courses/pregnancy-care.svg",
-    stage: "pregnancy", stageLabel: "Pregnancy",
-    colour: "teal",
-    text: "Nutrition, safe exercise, common discomforts and warning signs, trimester by trimester.",
-    duration: "2 sessions", mode: "Live online", price: 1500,
-  },
-  {
-    title: "Newborn Care Basics",
-    image: "images/courses/newborn-care.svg",
-    stage: "baby", stageLabel: "After birth",
-    colour: "lilac",
-    text: "Bathing, cord care, burping, sleep, crying and when to call the doctor in the first weeks.",
-    duration: "2 hours", mode: "Live online", price: 1200,
-  },
-  {
-    title: "1:1 Lactation Consultation",
-    image: "images/courses/lactation-consult.svg",
-    stage: "baby", stageLabel: "Private session",
-    colour: "rose",
-    text: "A private video or home visit for personal help with feeding, latch or supply. Includes a written plan.",
-    duration: "60 min", mode: "Video / home visit", price: 1800,
-  },
-];
+// Home page script. Settings and the course list live in courses.js.
 
 // =====================================================
 //  FEEDBACK: sample feedback, replace with real ones
 // =====================================================
 const FEEDBACK = [
-  { name: "Priya R.", meta: "Mother of one · Bengaluru", course: "The Birth Prep", text: "The Birth Prep classes took away so much of my fear. I knew what each stage of labour would feel like and what to ask for. My husband felt involved and confident too." },
-  { name: "Ananya S.", meta: "First-time mother", course: "Breastfeeding", text: "I was struggling with latch and pain in the first week. Dr. Monica's breastfeeding guidance fixed it in two sessions. I'm so thankful I found her." },
-  { name: "Kavya M.", meta: "Mother of two", course: "Labour Management", text: "The breathing and positions from the labour management session really worked. I stayed calm through most of my labour, which I never thought was possible." },
-  { name: "Divya K.", meta: "Working mother", course: "1:1 Lactation", text: "Her pumping plan made going back to work so much easier. Practical, kind and always available on WhatsApp when I had doubts." },
-  { name: "Meera & Karthik", meta: "New parents", course: "Newborn Care", text: "We came home from hospital feeling ready instead of panicked. Every question we had was answered patiently." },
+  { name: "Priya R.", meta: "First-time mother", course: "Labour Management", text: "The labour management classes took away so much of my fear. I knew what each stage of labour would feel like and what to ask for. My husband felt involved and confident too." },
+  { name: "Ananya S.", meta: "First-time mother", course: "Breastfeeding", text: "I was struggling with latch and pain in the first week. Dr. Monica's breastfeeding guidance made it so much easier. I'm so thankful I found her." },
+  { name: "Kavya M.", meta: "Mother of two", course: "Early Pregnancy", text: "The early pregnancy session answered every question I had, from scans to diet to what I should avoid. I felt calm and prepared." },
+  { name: "Divya K.", meta: "Working mother", course: "Breastfeeding", text: "The pumping and milk storage part made going back to work so much easier. Practical, kind and always available on WhatsApp when I had doubts." },
+  { name: "Meera & Karthik", meta: "New parents", course: "Labour + Breastfeeding", text: "We did the 3-day programme together. As a husband I finally knew how to support her in labour and with feeding. Classes in Telugu made it easy for our family too." },
 ];
 
-// =====================================================
-//  Helpers
-// =====================================================
-const rupees = (n) => "₹" + n.toLocaleString("en-IN");
-const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-const imgIcon = `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg>`;
-
-// ----- Courses -----
+// ----- Courses (cards link to their own page: course.html?c=...) -----
 const grid = document.getElementById("course-grid");
 function renderCourses(filter) {
   const list = filter === "all" ? COURSES : COURSES.filter((c) => c.stage === filter);
   grid.innerHTML = list.map((c, i) => `
-    <article class="course course--${c.colour}${c.featured ? " course--featured" : ""}" style="animation-delay:${i * 60}ms">
+    <a class="course${c.featured ? " course--featured" : ""}" href="${courseUrl(c)}" style="animation-delay:${i * 60}ms">
       <div class="course__media">
-        ${c.image ? `<img class="course__img" src="${c.image}" alt="${c.title}" loading="lazy" width="800" height="500">` : `<div class="img-ph">${imgIcon}<span>Image placeholder<br><small>${c.title}</small></span></div>`}
+        <img class="course__img" src="${c.image}" alt="" loading="lazy" width="800" height="500">
         ${c.badge ? `<span class="course__badge${c.featured ? " course__badge--featured" : ""}">${c.badge}</span>` : ""}
       </div>
       <div class="course__body">
         <span class="course__stage">${c.stageLabel}</span>
         <h3>${c.title}</h3>
-        <p>${c.text}</p>
+        <p>${c.short}</p>
         <div class="course__meta">
           <span>⏱ ${c.duration}</span>
           <span>💻 ${c.mode}</span>
+          <span>🗣 ${c.languages.join(" · ")}</span>
         </div>
         <div class="course__foot">
-          <span class="course__price">${c.oldPrice ? `<s>${rupees(c.oldPrice)}</s>` : ""}${rupees(c.price)}</span>
-          <a class="btn btn--primary" target="_blank" rel="noopener"
-             href="${waLink(`Hi ${EXPERT}, I'd like to book "${c.title}".`)}">Book now</a>
+          <span class="course__price">${c.oldPrice ? `<s>${rupees(c.oldPrice)}</s>` : ""}${rupees(c.price)}<small>${PRICE_NOTE}</small></span>
+          <span class="btn btn--primary">View details &rarr;</span>
         </div>
       </div>
-    </article>`).join("");
+    </a>`).join("");
 }
 document.querySelectorAll(".filter").forEach((btn) =>
   btn.addEventListener("click", () => {
