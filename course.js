@@ -22,10 +22,8 @@ function bookButtons(c, extraClass = "") {
 }
 
 function renderCourse(c) {
-  document.title = `${c.title} | Katha of Life by Dr. Monica`;
-  const desc = document.querySelector('meta[name="description"]');
-  if (desc) desc.content = `${c.title} with Dr. Monica: ${c.short} ${c.duration}, ${c.mode}, ${c.languages.join(" & ")}. ${rupees(c.price)}.`;
 
+  addSeo(c);
   $("cd-crumb").textContent = c.title;
   $("cd-stage").textContent = c.stageLabel;
   $("cd-title").textContent = c.title;
@@ -73,6 +71,65 @@ function renderCourse(c) {
         <p>${o.duration} · ${rupees(o.price)}</p>
       </div>
     </a>`).join("");
+}
+
+// ----- SEO / AEO: page address, share preview and structured data for this course -----
+function setMeta(attr, key, value) {
+  let m = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!m) { m = document.createElement("meta"); m.setAttribute(attr, key); document.head.appendChild(m); }
+  m.content = value;
+}
+function addSeo(c) {
+  const url = SITE + courseUrl(c);
+  const title = `${c.title} | Online class in English & Telugu | Katha of Life`;
+  const desc = `${c.title} by Dr. Monica: ${c.short} ${c.duration}, ${c.mode}, ${c.languages.join(" & ")}. ${rupees(c.price)} incl. GST.`;
+  document.title = title;
+  document.getElementById("canonical").href = url;
+  setMeta("name", "description", desc);
+  setMeta("property", "og:title", title);
+  setMeta("property", "og:description", desc);
+  setMeta("property", "og:url", url);
+  setMeta("property", "og:image", SITE + c.image);
+  const data = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        "@id": url + "#course",
+        "name": c.title,
+        "description": c.short,
+        "url": url,
+        "image": SITE + c.image,
+        "inLanguage": ["en", "te"],
+        "audience": { "@type": "Audience", "audienceType": c.forWho },
+        "teaches": c.curriculum.flatMap((b) => b.items),
+        "provider": { "@type": "EducationalOrganization", "name": "Katha of Life", "url": SITE },
+        "offers": {
+          "@type": "Offer", "category": "Paid", "price": c.price, "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock", "url": url
+        },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "online",
+          "courseWorkload": c.workload,
+          "inLanguage": ["en", "te"],
+          "instructor": { "@type": "Person", "name": "Dr. Monica", "jobTitle": "Childbirth Educator and Advanced Certified Lactation Professional" }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE },
+          { "@type": "ListItem", "position": 2, "name": "Courses", "item": SITE + "#courses" },
+          { "@type": "ListItem", "position": 3, "name": c.title, "item": url }
+        ]
+      }
+    ]
+  };
+  const sc = document.createElement("script");
+  sc.type = "application/ld+json";
+  sc.textContent = JSON.stringify(data);
+  document.head.appendChild(sc);
 }
 
 // ----- WhatsApp links in header/footer -----

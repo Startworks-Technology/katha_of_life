@@ -21,6 +21,7 @@ const EMAIL = "thekathaofyours.7@gmail.com";
 const COURSES = [
   {
     slug: "early-pregnancy",
+    workload: "PT3H", // total class time (for Google)
     title: "Early Pregnancy",
     image: "images/courses/early-pregnancy.jpg",
     stage: "pregnancy", stageLabel: "Pregnancy",
@@ -56,6 +57,7 @@ const COURSES = [
   },
   {
     slug: "breastfeeding",
+    workload: "PT2H30M", // total class time (for Google)
     title: "Breastfeeding",
     image: "images/courses/breastfeeding.jpg",
     stage: "baby", stageLabel: "Lactation",
@@ -95,6 +97,7 @@ const COURSES = [
   },
   {
     slug: "labour-management",
+    workload: "PT5H", // total class time (for Google)
     title: "Labour Management Session",
     image: "images/courses/labour-management.jpg",
     stage: "birth", stageLabel: "Labour",
@@ -143,6 +146,7 @@ const COURSES = [
   const feeding = COURSES.find((c) => c.slug === "breastfeeding");
   COURSES.push({
     slug: "labour-and-breastfeeding",
+    workload: "PT9H",
     title: "Labour Management + Breastfeeding",
     image: "images/courses/labour-and-breastfeeding.jpg",
     stage: "birth", stageLabel: "Complete programme",
@@ -172,3 +176,4 @@ const PER_EMAIL_NOTE = "One price per registered email: join alone, as a couple 
 const rupees = (n) => "₹" + n.toLocaleString("en-IN");
 const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 const courseUrl = (c) => `course.html?c=${c.slug}`;
+const SITE = "https://kathaoflife.in/";

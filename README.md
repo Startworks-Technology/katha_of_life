@@ -7,10 +7,14 @@ Live domain: https://kathaoflife.in/
 ## Files
 - `index.html`: the home page
 - `course.html` + `course.js`: one page per course (`course.html?c=breastfeeding` etc.)
+- `articles.html` + `article.html` + `articles.js`: articles list and one page per article. **Edit articles in `articles-data.js`**
+- `faq.html` + `faq.js`: full FAQ page (the home page shows only 4 questions)
 - `courses.js`: **edit courses here**: titles, prices, timings, languages and what is taught. Also the WhatsApp number and email
 - `styles.css`: design and colour themes
+- `robots.txt`, `sitemap.xml`, `llms.txt`: for Google and AI tools (SEO / AEO / GEO). Add new pages to `sitemap.xml`
+- SEO structured data: in `<head>` of `index.html` (organisation, Dr. Monica, FAQ) and created by `course.js` for each course. **If you edit an FAQ, change it in both the FAQ section and the structured data.**
 - `script.js`: home page script (feedback list at the top)
-- `images/`: photos (`monica.jpg`)
+- `images/`: photos (`monica.jpg` = Dr. Monica, About section; `hero-mother-child.jpg` = top section, Pexels free licence: https://www.pexels.com/photo/33204399/)
 - `images/logo/`: logos used on the site (`logo-horizontal.png` = header logo, `logo-main.png` = main square logo, `logo-icon.png`, `logo-badge.png`, favicons). Full-size originals are in `images/logo/original/` (older logo versions in `original/v1/`)
 
 ## Run locally
@@ -30,9 +34,15 @@ Gallery photos in `images/gallery/` are from [Unsplash](https://unsplash.com/lic
 - happy-family.jpg: https://unsplash.com/photos/a-family-of-five-including-a-baby-posing-F4AsoI38xTk
 - new-mother.jpg: https://unsplash.com/photos/a-happy-mother-holding-her-cute-baby-vWiBKrKRM1o
 
+Article photos in `images/articles/` (free licences):
+- good-latch.jpg: https://unsplash.com/photos/baby-with-wide-eyes-looking-upward-EgtLW0teNyg
+- enough-breast-milk.jpg: https://www.pexels.com/photo/32830547/
+- true-vs-false-labour.jpg: https://www.pexels.com/photo/21792124/
+- hospital-bag.jpg: https://www.pexels.com/photo/3875082/
+
 Course photos in `images/courses/*.jpg` are object photos from [Pexels](https://www.pexels.com/license/) (free to use, including commercially):
 - early-pregnancy.jpg: https://www.pexels.com/photo/7055860/
-- breastfeeding.jpg: https://www.pexels.com/photo/374756/
-- labour-management.jpg: https://www.pexels.com/photo/25596889/
-- labour-and-breastfeeding.jpg: https://unsplash.com/photos/cute-baby-smiling-with-a-bindi-wearing-yellow-h0wY6_GZT_g (Unsplash, free licence)
+- breastfeeding.jpg: https://www.pexels.com/photo/27355922/
+- labour-management.jpg: https://www.pexels.com/photo/3984370/
+- labour-and-breastfeeding.jpg: https://unsplash.com/photos/cute-baby-with-dark-hair-and-wide-eyes-n2qbBJr3RIQ (Unsplash, free licence)
 The `.svg` files in the same folder are the earlier line illustrations (not used now).
