@@ -1,7 +1,7 @@
 // =====================================================
 //  SETTINGS (used on every page)
 // =====================================================
-const WHATSAPP_NUMBER = "917207310485"; // country code + number, no "+" or spaces
+const WHATSAPP_NUMBER = "919494078423"; // country code + number, no "+" or spaces
 const EXPERT = "Dr. Monica";
 const EMAIL = "thekathaofyours.7@gmail.com";
 
@@ -22,7 +22,7 @@ const COURSES = [
   {
     slug: "early-pregnancy",
     title: "Early Pregnancy",
-    image: "images/courses/pregnancy-care.svg",
+    image: "images/courses/early-pregnancy.jpg",
     stage: "pregnancy", stageLabel: "Pregnancy",
     short: "Confirmation of pregnancy, nutrition, bonding with your baby and much more.",
     forWho: "Anyone who wants to know what pregnancy looks like: first-time and second-time mothers.",
@@ -57,7 +57,7 @@ const COURSES = [
   {
     slug: "breastfeeding",
     title: "Breastfeeding",
-    image: "images/courses/breastfeeding.svg",
+    image: "images/courses/breastfeeding.jpg",
     stage: "baby", stageLabel: "Lactation",
     badge: "Most popular",
     short: "Latch, positions, milk supply, pumping, common problems and much more.",
@@ -96,7 +96,7 @@ const COURSES = [
   {
     slug: "labour-management",
     title: "Labour Management Session",
-    image: "images/courses/labour-management.svg",
+    image: "images/courses/labour-management.jpg",
     stage: "birth", stageLabel: "Labour",
     short: "Breathing, positions, comfort measures and partner support so you can work with your body during labour.",
     forWho: "From the 5th month of pregnancy onwards, and second-time mothers.",
@@ -144,7 +144,7 @@ const COURSES = [
   COURSES.push({
     slug: "labour-and-breastfeeding",
     title: "Labour Management + Breastfeeding",
-    image: "images/courses/birth-prep.svg",
+    image: "images/courses/labour-and-breastfeeding.jpg",
     stage: "birth", stageLabel: "Complete programme",
     badge: "Best value · Save ₹500", featured: true,
     short: "Our complete programme: the two-day Labour Management course plus the Breastfeeding session, together at a better price.",

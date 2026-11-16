@@ -120,5 +120,39 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => io.observe(el));
 }
 
+// ----- Instagram reels: load Instagram's embed script only when the section is near -----
+const igRow = document.getElementById("ig-row");
+if (igRow) {
+  const loadIg = () => {
+    if (window.instgrm) { window.instgrm.Embeds.process(); return; }
+    const sc = document.createElement("script");
+    sc.src = "https://www.instagram.com/embed.js";
+    sc.async = true;
+    document.body.appendChild(sc);
+  };
+  if ("IntersectionObserver" in window) {
+    const igObs = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) { loadIg(); igObs.disconnect(); }
+    }, { rootMargin: "600px" });
+    igObs.observe(igRow);
+  } else { loadIg(); }
+}
+
+// Show only the video: hide Instagram's top bar (55px) and bottom bar (152px)
+const IG_TOP = 55, IG_BOTTOM = 152;
+const fitReels = () => igRow && igRow.querySelectorAll(".ig-item").forEach((item) => {
+  const f = item.querySelector("iframe");
+  if (f && f.offsetHeight > 300) item.style.height = (f.offsetHeight - IG_TOP - IG_BOTTOM) + "px";
+});
+if (igRow && "ResizeObserver" in window) {
+  const ro = new ResizeObserver(fitReels);
+  new MutationObserver(() => igRow.querySelectorAll("iframe").forEach((f) => ro.observe(f)))
+    .observe(igRow, { childList: true, subtree: true });
+}
+
+document.querySelectorAll(".ig-btn").forEach((b) =>
+  b.addEventListener("click", () => igRow.scrollBy({ left: Number(b.dataset.dir) * 362, behavior: "smooth" }))
+);
+
 // ----- Footer year -----
 document.getElementById("year").textContent = new Date().getFullYear();

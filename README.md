@@ -30,4 +30,9 @@ Gallery photos in `images/gallery/` are from [Unsplash](https://unsplash.com/lic
 - happy-family.jpg: https://unsplash.com/photos/a-family-of-five-including-a-baby-posing-F4AsoI38xTk
 - new-mother.jpg: https://unsplash.com/photos/a-happy-mother-holding-her-cute-baby-vWiBKrKRM1o
 
-Course images in `images/courses/` are custom SVG line illustrations drawn for this site in the logo style (no licence needed).
+Course photos in `images/courses/*.jpg` are object photos from [Pexels](https://www.pexels.com/license/) (free to use, including commercially):
+- early-pregnancy.jpg: https://www.pexels.com/photo/7055860/
+- breastfeeding.jpg: https://www.pexels.com/photo/374756/
+- labour-management.jpg: https://www.pexels.com/photo/25596889/
+- labour-and-breastfeeding.jpg: https://unsplash.com/photos/cute-baby-smiling-with-a-bindi-wearing-yellow-h0wY6_GZT_g (Unsplash, free licence)
+The `.svg` files in the same folder are the earlier line illustrations (not used now).
