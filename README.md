@@ -11,7 +11,7 @@ Live domain: https://kathaoflife.in/
 - `styles.css`: design and colour themes
 - `script.js`: home page script (feedback list at the top)
 - `images/`: photos (`monica.jpg`)
-- `images/logo/`: logos used on the site (`logo-horizontal.png` = header logo, `logo-main.png` = main square logo, `logo-icon.png`, `logo-badge.png`, favicons). Full-size originals are in `images/logo/original/`
+- `images/logo/`: logos used on the site (`logo-horizontal.png` = header logo, `logo-main.png` = main square logo, `logo-icon.png`, `logo-badge.png`, favicons). Full-size originals are in `images/logo/original/` (older logo versions in `original/v1/`)
 
 ## Run locally
 No build step. Open `index.html` in a browser, or run:
