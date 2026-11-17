@@ -1,6 +1,7 @@
 // =====================================================
 //  ARTICLES: edit this list to add / change articles.
-//  Each article gets its own page: article.html?a=<slug>
+//  Each article gets its own page: article-<slug>.html
+//  After editing, run:  node tools/build-pages.js   (rebuilds the course + article pages)
 //  body: one line per paragraph. Start a line with "## " for a sub-heading.
 //  course: slug of the related course (shown at the end of the article)
 //  Source text: Google Doc "Website Data" -> Articles tab
@@ -110,5 +111,5 @@ const ARTICLES = [
   }
 ];
 
-const articleUrl = (a) => `article.html?a=${a.slug}`;
+const articleUrl = (a) => `article-${a.slug}.html`;
 const readMins = (a) => Math.max(2, Math.round(a.body.join(" ").split(/\s+/).length / 200));

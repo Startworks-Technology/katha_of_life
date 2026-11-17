@@ -3,12 +3,18 @@
 const $ = (id) => document.getElementById(id);
 const WA_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1112 20z"/></svg>';
 
-const slug = new URLSearchParams(location.search).get("c");
+// Static pages (course-<slug>.html) carry the slug on <body data-course>.
+// Old links (course.html?c=<slug>) are sent to the static page.
+const pageSlug = document.body.dataset.course;
+const querySlug = new URLSearchParams(location.search).get("c");
+const slug = pageSlug || querySlug;
 const course = COURSES.find((c) => c.slug === slug);
+const PRERENDERED = !!document.querySelector("script[data-prerendered]");
 
 if (!course) {
-  // Unknown or missing course: go back to the course list
   location.replace("index.html#courses");
+} else if (!pageSlug) {
+  location.replace(courseUrl(course));
 } else {
   renderCourse(course);
 }
@@ -81,7 +87,7 @@ function setMeta(attr, key, value) {
 }
 function addSeo(c) {
   const url = SITE + courseUrl(c);
-  const title = `${c.title} | Online class in English & Telugu | Katha of Life`;
+  const title = `${c.title} Class Online (English & Telugu) | Katha of Life`;
   const desc = `${c.title} by Dr. Monica: ${c.short} ${c.duration}, ${c.mode}, ${c.languages.join(" & ")}. ${rupees(c.price)} incl. GST.`;
   document.title = title;
   document.getElementById("canonical").href = url;
@@ -126,6 +132,7 @@ function addSeo(c) {
       }
     ]
   };
+  if (PRERENDERED) return; // already in the page's HTML
   const sc = document.createElement("script");
   sc.type = "application/ld+json";
   sc.textContent = JSON.stringify(data);

@@ -7,7 +7,8 @@ const EMAIL = "thekathaofyours.7@gmail.com";
 
 // =====================================================
 //  COURSES: edit this list to add / change courses.
-//  Each course gets its own page: course.html?c=<slug>
+//  Each course gets its own page: course-<slug>.html
+//  After editing, run:  node tools/build-pages.js   (rebuilds the course + article pages)
 //
 //  slug:       short id used in the page link (no spaces)
 //  stage:      pregnancy | birth | baby   (home page filter buttons)
@@ -175,5 +176,5 @@ const PER_EMAIL_NOTE = "One price per registered email: join alone, as a couple 
 // Shared helpers
 const rupees = (n) => "₹" + n.toLocaleString("en-IN");
 const waLink = (msg) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-const courseUrl = (c) => `course.html?c=${c.slug}`;
+const courseUrl = (c) => `course-${c.slug}.html`;
 const SITE = "https://kathaoflife.in/";

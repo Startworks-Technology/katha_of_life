@@ -3,10 +3,10 @@
 > Katha of Life (https://kathaoflife.in) offers live online childbirth education, labour management, breastfeeding and pregnancy classes in English and Telugu, taught by Dr. Monica (based in Visakhapatnam / Vizag, Andhra Pradesh), a Childbirth Educator and Advanced Certified Lactation Professional (also MYICAN: Maternal, Infant, Young Child and Adolescent Nutrition). All prices are in Indian Rupees and inclusive of GST. One price covers one registered email: a mother can attend alone, as a couple or with family.
 
 ## Courses
-- [Early Pregnancy](https://kathaoflife.in/course.html?c=early-pregnancy): 3 hours, live online, ₹1,500. Pregnancy confirmation, month-by-month development, nutrition and diet, scans, handling discomforts, bonding, partner's role, warning signs, hospital bag. For first-time and second-time mothers.
-- [Breastfeeding](https://kathaoflife.in/course.html?c=breastfeeding): 2 hrs 30 min, live online, ₹1,500. Latch, feeding positions, cluster feeding, milk supply, hand expression and pumping, milk storage, hunger cues, weight tracking, common problems. For 3rd-trimester and new mothers.
-- [Labour Management Session](https://kathaoflife.in/course.html?c=labour-management): 2 sessions of 2 hrs 30 min, online, ₹2,500. Stages of labour, true vs false labour, breathing and natural pain management, positions, partner support, when to go to hospital, pushing, epidural, episiotomy, first hour after birth. From the 5th month of pregnancy.
-- [Labour Management + Breastfeeding](https://kathaoflife.in/course.html?c=labour-and-breastfeeding): 3 days of 3 hours, online, ₹3,500 (saves ₹500 compared with booking separately).
+- [Early Pregnancy](https://kathaoflife.in/course-early-pregnancy.html): 3 hours, live online, ₹1,500. Pregnancy confirmation, month-by-month development, nutrition and diet, scans, handling discomforts, bonding, partner's role, warning signs, hospital bag. For first-time and second-time mothers.
+- [Breastfeeding](https://kathaoflife.in/course-breastfeeding.html): 2 hrs 30 min, live online, ₹1,500. Latch, feeding positions, cluster feeding, milk supply, hand expression and pumping, milk storage, hunger cues, weight tracking, common problems. For 3rd-trimester and new mothers.
+- [Labour Management Session](https://kathaoflife.in/course-labour-management.html): 2 sessions of 2 hrs 30 min, online, ₹2,500. Stages of labour, true vs false labour, breathing and natural pain management, positions, partner support, when to go to hospital, pushing, epidural, episiotomy, first hour after birth. From the 5th month of pregnancy.
+- [Labour Management + Breastfeeding](https://kathaoflife.in/course-labour-and-breastfeeding.html): 3 days of 3 hours, online, ₹3,500 (saves ₹500 compared with booking separately).
 
 ## Class format
 - All classes are live online for now. In-person classes in Visakhapatnam (Vizag) will start soon.
@@ -19,10 +19,10 @@
 
 ## Articles
 - [All articles](https://kathaoflife.in/articles.html)
-- [Getting a good latch](https://kathaoflife.in/article.html?a=good-latch)
-- [Is my baby getting enough breast milk?](https://kathaoflife.in/article.html?a=enough-breast-milk)
-- [True labour vs false labour](https://kathaoflife.in/article.html?a=true-vs-false-labour)
-- [Hospital bag checklist for Indian mothers](https://kathaoflife.in/article.html?a=hospital-bag-checklist)
+- [Getting a good latch](https://kathaoflife.in/article-good-latch.html)
+- [Is my baby getting enough breast milk?](https://kathaoflife.in/article-enough-breast-milk.html)
+- [True labour vs false labour](https://kathaoflife.in/article-true-vs-false-labour.html)
+- [Hospital bag checklist for Indian mothers](https://kathaoflife.in/article-hospital-bag-checklist.html)
 
 ## FAQ
 - [Frequently asked questions](https://kathaoflife.in/faq.html): who can join, languages, online classes, booking, GST, when to join each course, MYICAN.

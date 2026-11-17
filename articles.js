@@ -24,6 +24,7 @@ function setMeta(attr, key, value) {
   m.content = value;
 }
 function addLd(data) {
+  if (document.querySelector("script[data-prerendered]")) return; // already in the page's HTML
   const sc = document.createElement("script");
   sc.type = "application/ld+json";
   sc.textContent = JSON.stringify(data);
@@ -57,10 +58,13 @@ if ($("art-grid")) {
 
 // ---------- Single article page ----------
 if ($("article-body")) {
-  const slug = new URLSearchParams(location.search).get("a");
+  const pageSlug = document.body.dataset.article;
+  const slug = pageSlug || new URLSearchParams(location.search).get("a");
   const a = ARTICLES.find((x) => x.slug === slug);
   if (!a) {
     location.replace("articles.html");
+  } else if (!pageSlug) {
+    location.replace(articleUrl(a));
   } else {
     const url = SITE + articleUrl(a);
     document.title = `${a.title} | Katha of Life`;

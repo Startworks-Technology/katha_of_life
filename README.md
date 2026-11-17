@@ -17,6 +17,16 @@ Live domain: https://kathaoflife.in/
 - `images/`: photos (`monica-about.jpg` = Dr. Monica, About section (her own photo); `monica.jpg` = older photo, not used; `hero-mother-child.jpg` = top section, Pexels free licence: https://www.pexels.com/photo/33204399/)
 - `images/logo/`: logos used on the site (`logo-horizontal.png` = header logo, `logo-main.png` = main square logo, `logo-icon.png`, `logo-badge.png`, favicons). Full-size originals are in `images/logo/original/` (older logo versions in `original/v1/`)
 
+## After editing courses or articles (important for Google)
+Course and article pages are ready-made HTML files (`course-<slug>.html`, `article-<slug>.html`) so Google and AI tools can read them.
+After changing `courses.js` or `articles-data.js`, rebuild them:
+
+```bash
+node tools/build-pages.js
+```
+
+This also updates `articles.html` and `sitemap.xml`. Old links (`course.html?c=...`, `article.html?a=...`) redirect to the new pages.
+
 ## Run locally
 No build step. Open `index.html` in a browser, or run:
 
