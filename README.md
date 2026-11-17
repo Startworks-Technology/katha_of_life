@@ -14,7 +14,7 @@ Live domain: https://kathaoflife.in/
 - `robots.txt`, `sitemap.xml`, `llms.txt`: for Google and AI tools (SEO / AEO / GEO). Add new pages to `sitemap.xml`
 - SEO structured data: in `<head>` of `index.html` (organisation, Dr. Monica, FAQ) and created by `course.js` for each course. **If you edit an FAQ, change it in both the FAQ section and the structured data.**
 - `script.js`: home page script (feedback list at the top)
-- `images/`: photos (`monica.jpg` = Dr. Monica, About section; `hero-mother-child.jpg` = top section, Pexels free licence: https://www.pexels.com/photo/33204399/)
+- `images/`: photos (`monica-about.jpg` = Dr. Monica, About section (her own photo); `monica.jpg` = older photo, not used; `hero-mother-child.jpg` = top section, Pexels free licence: https://www.pexels.com/photo/33204399/)
 - `images/logo/`: logos used on the site (`logo-horizontal.png` = header logo, `logo-main.png` = main square logo, `logo-icon.png`, `logo-badge.png`, favicons). Full-size originals are in `images/logo/original/` (older logo versions in `original/v1/`)
 
 ## Run locally
@@ -44,5 +44,5 @@ Course photos in `images/courses/*.jpg` are object photos from [Pexels](https://
 - early-pregnancy.jpg: https://www.pexels.com/photo/7055860/
 - breastfeeding.jpg: https://www.pexels.com/photo/27355922/
 - labour-management.jpg: https://www.pexels.com/photo/3984370/
-- labour-and-breastfeeding.jpg: https://unsplash.com/photos/cute-baby-with-dark-hair-and-wide-eyes-n2qbBJr3RIQ (Unsplash, free licence)
+- labour-and-breastfeeding.jpg: Daiv, photo shared by Dr. Monica (her own photo, 17 Nov 2026)
 The `.svg` files in the same folder are the earlier line illustrations (not used now).
