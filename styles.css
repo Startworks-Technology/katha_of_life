@@ -668,8 +668,10 @@ a.course { text-decoration: none; color: inherit; }
 .ig-row { scrollbar-width: none; }
 .ig-row::-webkit-scrollbar { display: none; }
 [hidden] { display: none !important; }
-/* Also crop the bottom bar (likes, comment box); height is set by script.js */
-.ig-item { min-height: 0; background: #000; }
+/* Also crop the bottom bar (likes, comment box). Each card keeps the reel's 4:5 shape
+   from the start, so nothing jumps while Instagram loads. */
+.ig-item { min-height: 0; background: #000; aspect-ratio: 4 / 5; height: auto; }
+.ig-item blockquote.instagram-media:not([style]) { height: 100%; }
 
 /* Instagram follow button */
 .btn--ig { background: linear-gradient(45deg, #f9a03f 0%, #e1306c 50%, #833ab4 100%); color: #fff; border: 0; padding: 12px 24px; box-shadow: 0 8px 22px rgba(225, 48, 108, .28); }
