@@ -115,7 +115,7 @@ if ($("article-body")) {
           "mainEntityOfPage": url,
           "articleSection": a.category,
           "inLanguage": "en-IN",
-          "author": { "@type": "Person", "name": "Dr. Monica", "jobTitle": "Childbirth Educator and Advanced Certified Lactation Professional", "url": SITE },
+          "author": { "@type": "Person", "name": "Dr. Monica", "jobTitle": "Certified Childbirth Educator (CCCE) and Advanced Lactation Professional (ACLP)", "url": SITE },
           "publisher": { "@type": "EducationalOrganization", "name": "Katha of Life", "url": SITE, "logo": { "@type": "ImageObject", "url": SITE + "images/logo/logo-main-cream.png" } },
         },
         {

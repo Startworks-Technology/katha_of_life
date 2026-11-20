@@ -119,7 +119,7 @@ function addSeo(c) {
           "courseMode": "online",
           "courseWorkload": c.workload,
           "inLanguage": ["en", "te"],
-          "instructor": { "@type": "Person", "name": "Dr. Monica", "jobTitle": "Childbirth Educator and Advanced Certified Lactation Professional" }
+          "instructor": { "@type": "Person", "name": "Dr. Monica", "jobTitle": "Certified Childbirth Educator (CCCE) and Advanced Lactation Professional (ACLP)" }
         }
       },
       {
